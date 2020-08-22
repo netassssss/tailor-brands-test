@@ -47,15 +47,15 @@ export default {
       screenSize: 'screenSize',
     }),
     cards() {
-      const start = this.currentPage * 6;
+      const start = this.currentPage * this.numOfItemsInPage;
       if (this.showPagination) {
         return this.getCards
-          .slice(start, start + 6);
+          .slice(start, start + this.numOfItemsInPage);
       }
       return this.getCards;
     },
     disableNext() {
-      return !((this.currentPage + 1) * 6 < this.getCards.length);
+      return !((this.currentPage + 1) * this.numOfItemsInPage < this.getCards.length);
     },
     disablePrev() {
       return this.currentPage <= 0;
@@ -71,13 +71,27 @@ export default {
       minPage,
       currentPage: minPage,
       componentNames,
+      numOfItemsInPage: 6,
     };
   },
   methods: {
+    resetPage() {
+      this.minPage = 0;
+      this.maxPage = this.minPage + 2;
+      this.currentPage = this.minPage;
+    },
     changePage(num) {
       if (num > this.maxPage) this.maxPage = num;
       else if (num < this.minPage) this.minPage = num;
       this.currentPage = num;
+    },
+  },
+  watch: {
+    screenSize: {
+      immediate: true,
+      handler(newVal, oldVal) {
+        if (newVal !== oldVal) this.resetPage();
+      },
     },
   },
 };
