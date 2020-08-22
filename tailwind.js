@@ -8,8 +8,10 @@ module.exports = {
         topBar: '#373737',
       },
       spacing: {
+        'special5': '0 5px',
         20: '20px',
         40: '40px',
+        'special10': '0 10px 10px 10px',
       },
       minHeight: {
         30: '30px',
@@ -26,6 +28,7 @@ module.exports = {
       }),
       width: {
         20: '20px',
+        'special10': 'calc(100% - 20px)',
       },
       maxWidth: (theme, { breakpoints }) => ({
         none: 'none',
