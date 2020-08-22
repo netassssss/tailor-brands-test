@@ -1,32 +1,35 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <div id="app" class="h-full w-full absolute"
+       :class="{'smaller-screen': screenSize < 768}">
+    <top-bar />
     <router-view/>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
 
-#nav {
-  padding: 30px;
-}
+import { mapGetters } from 'vuex';
+import { initScreenUtils } from './store/actions';
+import TopBar from './components/TopBar.vue';
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+export default {
+  mounted() {
+    this.$store.dispatch(initScreenUtils);
+  },
+  components: {
+    TopBar,
+  },
+  computed: {
+    ...mapGetters({
+      screenSize: 'screenSize',
+    }),
+  },
+};
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+</script>
+
+<style scoped lang="scss">
+  .smaller-screen {
+    position: relative;
+  }
 </style>
