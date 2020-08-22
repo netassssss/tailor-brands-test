@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="h-full w-full absolute"
+  <div id="app" class="h-full w-full relative"
        :class="{'smaller-screen': screenSize < 768}">
     <top-bar />
     <router-view/>

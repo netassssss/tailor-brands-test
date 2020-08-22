@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col items-center justify-center shadow card-container">
+  <div class="flex flex-col items-start justify-center shadow card-container">
     <img v-if="imageData" :src="imageData.url" class="image-card"/>
-    <div>{{ headline }}</div>
-    <div>{{ subheadline }}</div>
+    <div class="pl-5 pr-5">{{ headline }}</div>
+    <div class="pl-5 pr-5">{{ subheadline }}</div>
   </div>
 </template>
 
@@ -29,6 +29,8 @@ export default {
 <style scoped lang="scss">
   .card-container {
     max-width: 360px;
+    margin-top: 20px;
+    padding-bottom: 5px;
   }
   .image-card {
     width: 100%;
