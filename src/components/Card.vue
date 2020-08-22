@@ -1,8 +1,8 @@
 <template>
-  <div class="h-full flex flex-col items-start justify-between shadow card-container">
-    <img v-if="imageData" :src="imageData.url" class="image-card"/>
-    <div class="mt-5 pl-5 pr-5 text-lg text-item">{{ headline }}</div>
-    <div class="mt-5 pl-5 pr-5 text-base text-item">{{ subheadline }}</div>
+  <div class="h-full flex flex-col items-start justify-between shadow max-w-360">
+    <img v-if="imageData" :src="imageData.url" class="w-full h-200"/>
+    <div class="mt-5 pl-5 pr-5 text-lg w-full min-h-30 bg-cardItem">{{ headline }}</div>
+    <div class="mt-5 pl-5 pr-5 text-base w-full min-h-30 bg-cardItem">{{ subheadline }}</div>
   </div>
 </template>
 
@@ -25,18 +25,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss">
-  .card-container {
-    max-width: 360px;
-    .text-item {
-      min-height: 30px;
-      background: #dedede;
-      width: 100%;
-    }
-  }
-  .image-card {
-    width: 100%;
-    height: 200px;
-  }
-</style>

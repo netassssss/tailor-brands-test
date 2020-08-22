@@ -1,10 +1,10 @@
 <template>
-  <div class="overview-container"
+  <div class="relative w-full h-full flex flex-col justify-between items-center p-20"
        :class="{'overview-smaller': !showPagination}">
-    <div class="w-full flex justify-between flex-wrap upper-section"
+    <div class="w-full flex justify-between flex-wrap h-30Of"
          :class="{'section-smaller': !showPagination}">
       <div v-for="(card, ind) in cards" :key="ind"
-           class="card-wrapper-item">
+           class="mb-40">
         <card
           v-if="card"
           :image-data="card[componentNames.headerImages]"
@@ -83,25 +83,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-  .overview-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    .pagination-container {
-      position: absolute;
-      bottom: 0;
-      top: 0;
-      margin-top: 100%;
-    }
-  }
-  .upper-section {
-    height: calc(100% - 30px);
-  }
   .section-smaller {
     display: flex;
     flex-direction: column;
@@ -110,8 +91,5 @@ export default {
   .overview-smaller {
     overflow: auto;
     max-height: 100%;
-  }
-  .card-wrapper-item {
-    margin-bottom: 20px;
   }
 </style>
