@@ -4,7 +4,7 @@
     <div class="w-full flex justify-between flex-wrap upper-section"
          :class="{'section-smaller': !showPagination}">
       <div v-for="(card, ind) in cards" :key="ind"
-           class="card-container">
+           class="card-wrapper-item">
         <card
           v-if="card"
           :image-data="card[componentNames.headerImages]"
@@ -110,5 +110,8 @@ export default {
   .overview-smaller {
     overflow: auto;
     max-height: 100%;
+  }
+  .card-wrapper-item {
+    margin-bottom: 20px;
   }
 </style>

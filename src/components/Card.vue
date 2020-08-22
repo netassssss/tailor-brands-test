@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col items-start justify-center shadow card-container">
+  <div class="h-full flex flex-col items-start justify-between shadow card-container">
     <img v-if="imageData" :src="imageData.url" class="image-card"/>
-    <div class="pl-5 pr-5">{{ headline }}</div>
-    <div class="pl-5 pr-5">{{ subheadline }}</div>
+    <div class="mt-5 pl-5 pr-5 text-lg text-item">{{ headline }}</div>
+    <div class="mt-5 pl-5 pr-5 text-base text-item">{{ subheadline }}</div>
   </div>
 </template>
 
@@ -29,8 +29,11 @@ export default {
 <style scoped lang="scss">
   .card-container {
     max-width: 360px;
-    margin-top: 20px;
-    padding-bottom: 5px;
+    .text-item {
+      min-height: 30px;
+      background: #dedede;
+      width: 100%;
+    }
   }
   .image-card {
     width: 100%;
